@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-import Image1 from "../../assets/sub_carousel_image/image1.jpg";
-import Image2 from "../../assets/sub_carousel_image/image2.jpg";
-import Image3 from "../../assets/sub_carousel_image/image3.jpg";
-import Image4 from "../../assets/sub_carousel_image/image4.jpg";
+import Image1 from "../../../public/sub_carousel_image/image1.jpg";
+import Image2 from "../../../public/sub_carousel_image/image2.jpg";
+import Image3 from "../../../public/sub_carousel_image/image3.jpg";
+import Image4 from "../../../public/sub_carousel_image/image4.jpg";
 import { useState, useEffect } from 'react';
 
 const Sub_Carousel = () => {
@@ -33,7 +33,7 @@ const Sub_Carousel = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-        }, 8000); 
+        }, 8000);
         return () => clearInterval(interval);
     }, [slides.length]);
 

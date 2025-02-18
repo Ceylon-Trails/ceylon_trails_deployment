@@ -1,10 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import image1 from '../../assets/images/Image1.jpg';
-import image2 from '../../assets/images/Image2.jpg';
-import image3 from '../../assets/images/Image3.jpg';
-import image4 from '../../assets/images/Image4.jpg';
-import image5 from '../../assets/images/Image5.jpg';
+import image1 from '../../../public/images/Image1.jpg';
+import image2 from '../../../public/images/Image2.jpg';
+import image3 from '../../../public/images/Image3.jpg';
+import image4 from '../../../public/images/Image1.jpg';
+import image5 from '../../../public/images/Image5.jpg';
 
 const Main_Carousel = () => {
     const slides = [
