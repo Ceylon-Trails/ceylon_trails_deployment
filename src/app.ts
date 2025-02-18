@@ -41,7 +41,7 @@ app.get('*', (_: Request, res: Response): void => {
     res.sendFile(filePath);
 });
 
-app.listen(port, host, (): void => {
+app.listen(port, (): void => {
     console.log(`Server started at ${host} port ${port}`);
 })
 
