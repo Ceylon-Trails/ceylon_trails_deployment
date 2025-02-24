@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const defaultCenter = {
     lat: 7.8731,
@@ -11,25 +12,40 @@ const defaultCenter = {
 const ActivityMapModal = ({ activityMap, item }) => {
     const mapContainer = useRef(null);
     const mapRef = useRef(null);
-    const markerRef = useRef(null); 
+    const markerRef = useRef(null);
+
+    const iconHtml = `
+    <div style="color: indigo; font-size: 24px;">
+        <svg viewBox="0 0 384 512" width="35" height="35" fill="currentColor">
+            <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/>
+        </svg>
+    </div>
+`;
+
+
+    const customIcon = L.divIcon({
+        className: 'custom-icon',
+        html: iconHtml, 
+        iconSize: [32, 32], 
+    });
 
     useEffect(() => {
         if (mapContainer.current && !mapRef.current) {
             mapRef.current = L.map(mapContainer.current).setView([defaultCenter.lat, defaultCenter.lng], 8);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapRef.current);
         }
-       
+
         if (mapRef.current) {
-            const location = item?.locations?.[0]; 
+            const location = item?.locations?.[0];
 
             if (location) {
-              
+
                 if (markerRef.current) {
                     mapRef.current.removeLayer(markerRef.current);
-                }            
-                markerRef.current = L.marker([location.lat, location.lng]).addTo(mapRef.current);            
+                }
+                markerRef.current = L.marker([location.lat, location.lng], { icon: customIcon }).addTo(mapRef.current);
                 mapRef.current.setView([location.lat, location.lng], 8);
-            } else {            
+            } else {
                 console.error('Location is undefined');
             }
         }
@@ -48,7 +64,7 @@ const ActivityMapModal = ({ activityMap, item }) => {
                     </label>
                 </div>
 
-                <div id="map"  ref={mapContainer} style={{ height: '400px', width: '100%', margin: 'auto' }}></div>
+                <div id="map" ref={mapContainer} style={{ height: '400px', width: '100%', margin: 'auto' }}></div>
             </div>
         </dialog>
     );
