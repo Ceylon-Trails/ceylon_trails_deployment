@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Cache-control', 'Express', 'Prigma'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cache-control', 'Expires', 'Prigma'],
     exposedHeaders: ['Authorization', 'Role'],
     credentials: true
 }));
@@ -34,12 +34,12 @@ app.use('/user', UserRouter);
 app.use(passport.initialize());
 app.use(errorHandler);
 
-app.use(express.static(path.join(__dirname, '../ceylon-trails-client/dist')));
-app.get('*', (_: Request, res: Response): void => {
-    const filePath = path.join(__dirname, '../ceylon-trails-client/dist/index.html');
-    console.log('Resolved File Path:', filePath); // Log this to check the final resolved path
-    res.sendFile(filePath);
-});
+// app.use(express.static(path.join(__dirname, '../ceylon-trails-client/dist')));
+// app.get('*', (_: Request, res: Response): void => {
+//     const filePath = path.join(__dirname, '../ceylon-trails-client/dist/index.html');
+//     console.log('Resolved File Path:', filePath); // Log this to check the final resolved path
+//     res.sendFile(filePath);
+// });
 
 app.listen(port, (): void => {
     console.log(`Server started at ${host} port ${port}`);

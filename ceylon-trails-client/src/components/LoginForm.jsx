@@ -12,6 +12,7 @@ import { jwtDecode } from "jwt-decode";
 import { setUser } from "../store/authSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { googleAuth } from "../api/googleAuth";
 
 const LoginForm = ({ loginModal }) => {
 
@@ -93,10 +94,10 @@ const LoginForm = ({ loginModal }) => {
                 <div className="h-[2px] mt-5 w-30 bg-white"></div>
             </div>
 
-            <div className="flex mt-2 gap-x-2 ">
-                <img src={Google} alt="" className="size-5" />
-                <label className="text-white text-md font-abhaya" htmlFor="">Sign in with Google</label>
-            </div>
+            <button className="flex mt-2 gap-x-2 " onClick={googleAuth}>
+                {/* <img src={Google} alt="" className="size-5" /> */}
+                <label  className="text-white text-md font-abhaya " htmlFor="">Sign in with Google</label>
+            </button>
 
         </form>
 
