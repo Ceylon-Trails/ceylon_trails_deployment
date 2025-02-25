@@ -97,6 +97,8 @@ export async function handleLoginRequest(request: LoginRequestDTO): Promise<Resp
     const {email, password} = request;
     const model: Awaited<ReturnType<typeof findUserModelByEmail>> = await findUserModelByEmail(email);
 
+    console.log(email)
+
     if (!model) throw new InvalidAuthenticationDetailsError("Invalid email address. Try again", 401);
     console.info(`model ${model.email}`)
 

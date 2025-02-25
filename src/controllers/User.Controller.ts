@@ -13,6 +13,7 @@ import {
 import {UserDTO} from "../dto/User.DTO";
 import {config} from 'dotenv'
 import {Role} from "../utils/Role";
+import { log } from "console";
 
 config();
 
@@ -23,6 +24,7 @@ export async function defaultLoginRoute(req: Request, res: Response, next: NextF
     console.info(`Login request received for email${reqData.email}`);
     try {
         const data: DoneProps & { isAdmin: boolean } | null = await handleLoginRequest(reqData);
+        console.log("email", reqData.email);
 
         res.setHeader('Authorization', `Bearer ${data!.jwtAccessToken}`);
         res.setHeader('Role', data?.isAdmin ? 'admin' : 'user');
@@ -62,7 +64,8 @@ export async function googleCallbackRoute(req: Request, res: Response): Promise<
         sameSite: 'strict',
         maxAge: 3600
     });
-    res.redirect('/');
+    res.redirect("/");
+    //res.json({ message: "Login Success", data: doneProps });
 }
 
 export async function refreshTokenRoute(req: Request, res: Response): Promise<void> {

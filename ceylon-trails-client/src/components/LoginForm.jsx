@@ -95,7 +95,7 @@ const LoginForm = ({ loginModal }) => {
             </div>
 
             <button className="flex mt-2 gap-x-2 " onClick={googleAuth}>
-                {/* <img src={Google} alt="" className="size-5" /> */}
+                <img src={Google} alt="" className="size-5" />
                 <label  className="text-white text-md font-abhaya " htmlFor="">Sign in with Google</label>
             </button>
 
