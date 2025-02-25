@@ -4,7 +4,7 @@ export const getProvinceDetails =  createAsyncThunk(
     "getProvinceDetails",async(_,thunkApi)=>{
       
         try {
-            const res = await fetch("/cards",{
+            const res = await fetch("http://localhost:3000/cards",{
                 method : "GET",
                 headers : {
                     "Content-Type" : "application/json"
