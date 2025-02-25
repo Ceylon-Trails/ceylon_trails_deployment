@@ -2,9 +2,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getProvinceDetails =  createAsyncThunk(
     "getProvinceDetails",async(_,thunkApi)=>{
-        const endpoint = "/api/cards" || "/cards";
+      
         try {
-            const res = await fetch(endpoint,{
+            const res = await fetch("/cards" && "/api/cards",{
                 method : "GET",
                 headers : {
                     "Content-Type" : "application/json"
