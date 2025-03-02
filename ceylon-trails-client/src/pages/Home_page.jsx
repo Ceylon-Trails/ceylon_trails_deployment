@@ -92,7 +92,7 @@ const Home_page = ({user}) => {
         </div>
       </div>
       <div className='flex justify-center p-4'>
-        <label className='text-topic-200 text-3xl text-center sm:text-6xl font-jomhuria' htmlFor="">Embark on a Provincial Journey: Select Your Destinations</label>
+        <label className='text-topic-200 text-3xl text-center sm:text-6xl font-jomhuria' htmlFor="">Embark on a Provincial Journey: Select Your Destination</label>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-7 gap-4 px-4">
         <div className="col-span-1 grid sm:col-span-4">
