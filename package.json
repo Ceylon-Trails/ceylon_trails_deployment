@@ -3,7 +3,7 @@
   "version": "1.0.0-SNAPSHOT",
   "main": "src/app.ts",
   "scripts": {
-    "serve": "ts-node src/app.ts",
+    "serve": "npm run build-client && ts-node src/app.ts",
     "dev": "nodemon src/app.ts",
     "build-client": "npm install --force --prefix ./ceylon-trails-client && npm run build --force --prefix ./ceylon-trails-client",
     "build": "npm run build-client && npm install ",
